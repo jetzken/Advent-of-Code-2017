@@ -1,0 +1,18 @@
+# task guide:
+# review sequence of digits
+# sum of all digits that match NEXT digit
+# list is circular (first is next digit for last)
+# use recursion to loop through list?
+
+arrayFirst = 0
+arrayNext = 1
+testList1 = [1,1,2,2]
+testList2 = [1,1,1,1]
+testList3 = [1,2,3,4]
+testList4 = [9,1,2,1,2,1,2,9]
+
+def CompareDigits(first, next):
+    if first == next:
+        return True
+    return False
+
