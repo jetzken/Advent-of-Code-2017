@@ -18,8 +18,12 @@ testList4 = [9,1,2,1,2,1,2,9] # return 9
 def Captcha (digits):
     total = 0
     for i in range(len(digits)):
-        if digits[i] == digits[i+1]: total += int(digits[i])
+        if digits[i] == digits[(i+1)%len(digits)]: total += int(digits[i]) # % returns 0 to len-1, guaranteed to loop back
     return total
 
+""" print (Captcha(testList1))
+print (Captcha(testList2))
+print (Captcha(testList3))
+print (Captcha(testList4)) """
 
-Captcha(input())
+print (Captcha(input()))
