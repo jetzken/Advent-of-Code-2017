@@ -26,4 +26,26 @@ print (Captcha(testList2))
 print (Captcha(testList3))
 print (Captcha(testList4)) """
 
-print (Captcha(input()))
+#print (Captcha(input()))
+
+# part 2
+# sum of digits half way around
+
+testList5 = [1,2,1,2] # return 6
+testList6 = [1,2,2,1] # return 0
+testList7 = [1,2,3,4,2,5] # return 4
+testList8 = [1,2,3,1,2,3] # return 12
+
+def CaptchaHalf (digits):
+    total = 0
+    step = int(len(digits)/2)
+    for i in range(len(digits)):
+        if digits[i] == digits[(i+step)%len(digits)]: total += int(digits[i])
+    return total
+
+""" print (CaptchaHalf(testList5))
+print (CaptchaHalf(testList6))
+print (CaptchaHalf(testList7))
+print (CaptchaHalf(testList8)) """
+
+print (CaptchaHalf(input()))
