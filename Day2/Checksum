@@ -1,9 +1,20 @@
 import csv
 
-checksumTotal = 0
+checksumList = []
 
 with open('Day2\input.txt', 'r') as file:
     reader = csv.reader(file, delimiter = '\t') # tab used as seperater of items
-    for f in file:
-        checksumTotal += int(f)
-    print (checksumTotal)
+    for line in reader: # line is initially list of strings
+        l = []
+        for i in line:
+            l.append(int(i))
+        checksumList.append(l)
+
+def checkSum1 (checksum):
+    total = 0
+    for line in checksum:
+        total += max(line) - min(line)
+    print (total)
+
+checkSum1(checksumList)
+
