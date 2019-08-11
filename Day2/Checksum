@@ -1,0 +1,9 @@
+import csv
+
+checksumTotal = 0
+
+with open('Day2\input.txt', 'r') as file:
+    reader = csv.reader(file, delimiter = '\t') # tab used as seperater of items
+    for f in file:
+        checksumTotal += int(f)
+    print (checksumTotal)
