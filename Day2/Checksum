@@ -10,11 +10,22 @@ with open('Day2\input.txt', 'r') as file:
             l.append(int(i))
         checksumList.append(l)
 
-def checkSum1 (checksum):
+# returns sum of difference of each line
+def checkSum1 (checksum): 
     total = 0
     for line in checksum:
         total += max(line) - min(line)
-    print (total)
+    return total
 
-checkSum1(checksumList)
+# returns sum of quotient of the evenly divisible values in each line
+# per line there are only two numbers that will return remainder 0
+# each line is circular
+def checkSum2 (checksum):
+    total = 0
+    for line in checksum:
+        for i in range(len(line)):
+            if line[i] % line[(i+1)%len(line)] == 0 : total += line[i]/line[(i+1)%len(line)]
+    return total
 
+print (checkSum1(checksumList))
+print (checkSum2(checksumList))
