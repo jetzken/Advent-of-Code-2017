@@ -34,8 +34,6 @@ def Part2(line):
                     if ''.join(sorted(passphrase[i])) == ''.join(sorted(passphrase[j+1])): valid = False #sort letters to check for match
             i += 1
         if valid: total += 1
-        print (total)
     return total
 
-print (Part2(["abcde edbca", "abc abcde geg", "oiii ioii iioi"]))
-#print (Part2(lines))
+print (Part2(lines))
