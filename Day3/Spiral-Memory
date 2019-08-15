@@ -19,6 +19,8 @@ def Part1(data):
         return 0
 
     sideLength = math.ceil(math.sqrt(data)) # side length where data is located
+    if sideLength % 2 == 0: # account for even sq numbers
+        sideLength += 1
     edgeToCentreDist = sideLength//2 # max vertical or horizontal distance from square 1
     edgeCentreVal = [] # middle of each side data location
     for i in range(0,4):
@@ -28,4 +30,4 @@ def Part1(data):
         dataToCentreDist.append(abs(edgeCentreVal[j]-data))
     return min(dataToCentreDist) + edgeToCentreDist # want closest centre point to data
 
-print (Part1(19))
+print (Part1(int(input())))
