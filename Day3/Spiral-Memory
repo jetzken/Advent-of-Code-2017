@@ -15,8 +15,17 @@ spiral:
 # manhattan distance from data location to square 1
 
 def Part1(data):
+    if data == 1:
+        return 0
+
     sideLength = math.ceil(math.sqrt(data)) # side length where data is located
-    maxDist = sideLength//2 # max vertical or horizontal distance from square 1
-    return maxDist
+    edgeToCentreDist = sideLength//2 # max vertical or horizontal distance from square 1
+    edgeCentreVal = [] # middle of each side data location
+    for i in range(0,4):
+        edgeCentreVal.append(sideLength**2 - ((sideLength - 1)*i) - edgeToCentreDist)
+    dataToCentreDist = [] # how far data is to each centre point
+    for j in range(0,4):
+        dataToCentreDist.append(abs(edgeCentreVal[j]-data))
+    return min(dataToCentreDist) + edgeToCentreDist # want closest centre point to data
 
 print (Part1(19))
